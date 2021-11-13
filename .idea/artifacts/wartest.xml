@@ -1,0 +1,24 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="wartest">
+    <output-path>$PROJECT_DIR$/out</output-path>
+    <root id="archive" name="wartest.war">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/../../lab/week6/jersey-jars-intellij/jackson-core-asl-1.9.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../lab/week6/jersey-jars-intellij/jackson-mapper-asl-1.9.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../lab/week6/jersey-jars-intellij/jackson-jaxrs-1.9.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../lab/week6/jersey-jars-intellij/jackson-xc-1.9.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../lab/week6/jersey-jars-intellij/jersey-client-1.19.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../lab/week6/jersey-jars-intellij/jsr311-api-1.1.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/servlet-api.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../lab/week6/jersey-jars-intellij/jettison-1.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../lab/week6/jersey-jars-intellij/jersey-servlet-1.19.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../lab/week6/jersey-jars-intellij/jersey-server-1.19.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../lab/week6/jersey-jars-intellij/jersey-json-1.19.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../lab/week6/jersey-jars-intellij/jersey-core-1.19.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/src/com/coursework/jaxrs/mov/client/WebService1Client.java" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
