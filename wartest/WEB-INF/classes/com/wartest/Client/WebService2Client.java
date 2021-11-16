@@ -5,7 +5,7 @@ import java.util.*;
 import java.text.*;
 import java.sql.*;
 
-public class RecommendMovie extends HttpServlet {
+public class WebService2Client extends HttpServlet {
   
   public static final String propsFile = "jdbc.properties";
   private static final String CONTENT_TYPE = "text/html";

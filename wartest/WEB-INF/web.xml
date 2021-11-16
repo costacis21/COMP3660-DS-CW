@@ -14,7 +14,7 @@
   
   <servlet>
     <servlet-name>RecommendMovie</servlet-name>
-    <servlet-class>com.wartest.Client.RecommendMovie</servlet-class>
+    <servlet-class>com.wartest.Client.WebService2Client</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>RecommendMovie</servlet-name>
