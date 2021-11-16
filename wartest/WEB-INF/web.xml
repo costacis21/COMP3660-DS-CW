@@ -11,4 +11,13 @@
     <servlet-name>Actor</servlet-name>
     <url-pattern>/actor</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>RecommendMovie</servlet-name>
+    <servlet-class>com.wartest.Client.RecommendMovie</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RecommendMovie</servlet-name>
+    <url-pattern>/RecommendMovie</url-pattern>
+  </servlet-mapping>
 </web-app>
