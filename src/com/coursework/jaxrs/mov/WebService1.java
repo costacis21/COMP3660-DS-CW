@@ -19,7 +19,7 @@ public class WebService1 {
     @Path("/")
     @Produces(MediaType.TEXT_XML)
     public String actorXML(@QueryParam("actor") String a) {
-        return "<?xml version=\"1.0\"?>" + "<result>" +  (a) + "</result>";
+        return "<?xml version=\"1.0\"?>" + "<favorite-actor>" +  (a) + "</favorite-actor>";
     }
 
 }
