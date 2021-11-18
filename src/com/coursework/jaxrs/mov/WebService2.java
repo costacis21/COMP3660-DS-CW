@@ -100,26 +100,24 @@ public class WebService2 {
 
     @GET
     @Path("/")
-    @Produces(MediaType.TEXT_XML)
-    public String genreXML() {
+    @Produces(MediaType.TEXT_PLAIN)
+    public String genreXML(@QueryParam("genre_name") String genreName) {
         try{
             Object jsonGenres = parser.parse(genresStr);
             JSONArray array = (JSONArray)jsonGenres;
+            String genre;
+            String id="0";
+            for(int i=0;i<array.size();i++){
+                Object jsonGenre = parser.parse(array.get(i).toString());
+                JSONObject genreJson = (JSONObject)jsonGenre;
+                genre = genreJson.get("name").toString();
+                if(genre.equals(genreName)){
+                    id = genreJson.get("id").toString();
+                }
 
-            String genreJSONStr =  array.get(new Random().nextInt(array.size())).toString();
+            }
 
-
-            Object jsonGenre = parser.parse(genreJSONStr);
-            JSONObject genreJson = (JSONObject)jsonGenre;
-
-            String name= genreJson.get("name").toString();
-            String id = genreJson.get("id").toString();
-
-
-
-
-            return "<?xml version=\"1.0\"?>" + "<genre> <name>" +  name + "</name>"+ "<id>" +  id + "</id> </genre>";
-
+            return id;
 
 
         }catch (ParseException e){

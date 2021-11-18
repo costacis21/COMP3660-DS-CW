@@ -12,10 +12,10 @@ import javax.ws.rs.core.MediaType;
 import java.nio.channels.AcceptPendingException;
 
 public class WebServiceClient {
-    static final String REST_URI = "http://localhost:9999/cw";
-    static final String ACTOR_PATH = "mov/";
-    static final String GENRE_PATH = "genre/";
-    static final String SUG_PATH = "sug/";
+    static final String REST_URI = "http://localhost:9997/cw";
+    static final String MOV_PATH = "mov/";//genre-id param 3
+    static final String GENRE_ID_PATH = "genreID/"; //movie-title param 1
+    static final String GENRE_PATH = "genre/";//genre_name param 2
 
     public static void main(String[] args) {
 
@@ -24,34 +24,52 @@ public class WebServiceClient {
         ClientConfig config = new DefaultClientConfig();
         Client client = Client.create(config);
         WebResource service = client.resource(REST_URI);
+        WebResource getGenreNameService = service.path(GENRE_ID_PATH).queryParam("movie-title","John Wick");
+        WebResource getGenreIDService = service.path(GENRE_PATH).queryParam("genre_name","Action");
+        WebResource getMovSugService = service.path(MOV_PATH).queryParam("genre_ID","28"); //28=action
 
-        WebResource actorService = service.path(ACTOR_PATH).queryParam("actor","Pellos1");
-        System.out.println("Add Response: " + getResponse(actorService));
-        System.out.println("Add Output as XML: " + getOutputAsXML(actorService));
-        System.out.println("Add Output as Text: " + getOutputAsText(actorService));
+        long startT,endT;
+
+        System.out.println("Genre Name: t+ " + getResponseAsHTML(getGenreNameService));
+        for(int i=0; i<5;i++){
+            startT = System.nanoTime();
+            getResponseAsHTML(getGenreNameService);
+            endT = System.nanoTime();
+            System.out.println(endT - startT);
+        }
         System.out.println("---------------------------------------------------");
 
-        WebResource genreService = service.path(GENRE_PATH).queryParam("prefgenre","PellaErga");
-        System.out.println("Sub Response: " + getResponse(genreService));
-        System.out.println("Sub Output as XML: " + getOutputAsXML(genreService));
+        System.out.println("ID: " + getOutputAsText(getGenreIDService));
+        for(int i=0; i<5;i++){
+            startT = System.nanoTime();
+            getOutputAsText(getGenreIDService);
+            endT = System.nanoTime();
+            System.out.println(endT - startT);
+        }
         System.out.println("---------------------------------------------------");
 
-//        WebResource sugService = service.path(SUG_PATH).path("PelloErgo");
-//        System.out.println("Mult Response: " + getResponse(sugService));
-//        System.out.println("Mult Output as XML: " + getOutputAsXML(sugService));
-//        System.out.println("---------------------------------------------------");
+
+        System.out.println("Movie suggestion: " + getResponseAsHTML(getMovSugService));
+        for(int i=0; i<5;i++){
+            startT = System.nanoTime();
+            getResponseAsHTML(getMovSugService);
+            endT = System.nanoTime();
+            System.out.println(endT - startT);
+        }
+        System.out.println("---------------------------------------------------");
 
     }
 
-    private static String getResponse(WebResource service) {
-        return service.accept(MediaType.TEXT_XML).get(ClientResponse.class).toString();
+    private static String getResponseAsHTML(WebResource service) {
+        return service.accept(MediaType.TEXT_HTML).get(ClientResponse.class).toString();
     }
 
-    private static String getOutputAsXML(WebResource service) {
-        return service.accept(MediaType.TEXT_XML).get(String.class);
-    }
 
     private static String getOutputAsText(WebResource service) {
         return service.accept(MediaType.TEXT_PLAIN).get(String.class);
+    }
+
+    private static String getResponseAsEverything(WebResource service){
+        return service.accept(MediaType.WILDCARD).get(ClientResponse.class).toString();
     }
 }

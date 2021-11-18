@@ -1,14 +1,15 @@
 <web-app>
   <display-name>Get your movie!</display-name>
   <description>
-    A simple, servlet used as a client for a web service that issues a streaming link to a user depending on their favorite actor and movie.
+    A simple, servlet used as a client for a web service that issues a streaming link to a user depending on their favorite movie.
   </description>
+  
   <servlet>
-    <servlet-name>Actor</servlet-name>
-    <servlet-class>com.wartest.Client.WebService1Client</servlet-class>
+    <servlet-name>RecommendMovie</servlet-name>
+    <servlet-class>com.wartest.Client.WebService2Client</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Actor</servlet-name>
-    <url-pattern>/actor</url-pattern>
+    <servlet-name>RecommendMovie</servlet-name>
+    <url-pattern>/RecommendMovie</url-pattern>
   </servlet-mapping>
 </web-app>
