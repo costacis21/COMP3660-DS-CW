@@ -1,6 +1,6 @@
 # COMP3660-DS-CW
 
-export to classpath and add to build config of ide all libraries in lib/ 
+export to classpath and add to build config of ide all libraries in lib/  + jdbc connector driver
 
 run WebServicesStartup.java.
 
