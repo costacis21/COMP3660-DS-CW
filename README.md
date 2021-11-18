@@ -1,14 +1,15 @@
 # COMP3660-DS-CW
 
-run WebService1Startup.java TODO reformat to WebServiceStartup.java since it rus all of them.
+export to classpath and add to build config of ide all libraries in lib/ 
 
-wartest under tomcat/webapps, visit http://localhost:8080/wartest/actor
+run WebServicesStartup.java.
 
-WebService1 will be called from wartest ^^^^^
+wartest under tomcat/webapps, 
+compile WebService2Client.java and start tomcat, 
 
-WebService2 http://localhost:9999/cw/genre
+visit http://localhost:8080/wartest/RecommendMovie to test services
 
-run WebServiceClient for console app to test clients
+run WebServiceClient for console app to test clients with elapsed nano seconds
 
 
 
